@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+Side navigation 
+ <div class="sidenav">
+  <ul>
+    <li class="js-social-networks"> Social networks</li>
+    <li class="js-job">Job</li>
+    <li class="js-home">Home</li>
+    <li class="js-shopping">Shopping</li>
+  </ul>
+  <button id = "create" class="button">Create new item</button>
+</div>
+
+
+
+<!-- Page content -->
+
+<div class="main">
+  
+  <div class="item js-item">
+  
+    <form name="signup_form" autocomplete="off" class="js-form" novalidate>
+     
+      <label>
+        
+        <input class="input"  name="name" placeholder="Name of website" >
+      </label>
+  
+      <label>
+        Username
+        <input class="input"  name="username" id = "social" placeholder='Click to view' />
+        <button class="copy" id="copy">Copy username</button>
+      </label>
+  
+      <label>
+        Password
+        <input class="input"  name="password" id="social" placeholder='Click to view' />
+        <button class="copy" id="copy">Copy password </button>
+      </label>
+  
+      <label>
+        New password
+        <input name="new-password" id="social" placeholder='Type new password' />
+      </label>
+  
+  
+      <button class="button-form" >Submit</button>
+      <button type="button" id="remove" class="button-form">Remove</button>
+
+    </form>
+  </div>
+  
+
+
+</div> 
+
+
+
+  <script src="./styles/script.js" type="module"></script>
+</body> 
+</html>
+
+
+
+
