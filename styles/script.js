@@ -1,4 +1,6 @@
 
+///creation  and removing of elements
+
 const buttonCreationRef = document.getElementById('create');
 const mainContainerRef = document.querySelector('.main');
 const inputForm = document.querySelector('.js-item');
@@ -45,7 +47,7 @@ function removeBtnFunction(event){
 }
 
 
-
+///adding of event lisnerers to every item of the form
 
 const item = {
     form: document.querySelectorAll('.js-form'),
@@ -56,7 +58,7 @@ const item = {
     copybutton: document.querySelectorAll('.copy')
 }
 
-console.log(item.copybutton)
+
 
 
 item.form.forEach((element => element.addEventListener('submit', handleFormSubmit)));
@@ -95,7 +97,7 @@ function handleInputName(event){
 document.addEventListener('DOMContentLoaded', function getTextForNameField (){
    
     item.name.forEach((input) =>{
-
+        // console.log(input)
         const inputValue = ((input.parentNode.parentNode.parentNode).getAttribute('value'));
 
         // console.log((input.parentNode.parentNode))
@@ -114,10 +116,6 @@ document.addEventListener('DOMContentLoaded', function getTextForNameField (){
 
 } )
 
-
-// $("body").on("mousedown", '.input', function (e) {
-//     e.preventDefault();
-// });
 
 
 function handleInputUsername(event){
@@ -175,7 +173,6 @@ function handleNewPasswordUsername(event){
 
 function handleCopyFunction(event){
     event.preventDefault()
-    // console.log((event.currentTarget).previousElementSibling)
     const textToCopy = (event.currentTarget).previousElementSibling;
 
     textToCopy.select();
@@ -187,5 +184,61 @@ function handleCopyFunction(event){
 
 
 }
+
+
+
+//section that permits to filter items from sidebar
+
+const sidebarSection = document.getElementById('sort-section');
+const filterList =  document.querySelectorAll('#sort');
+
+
+
+
+
+
+filterList.forEach((element => element.addEventListener('change', filterFunction)))
+
+
+
+function filterFunction (e){
+    const uniqueIDRef = (e.target.parentNode).getAttribute('value')
+    localStorage.setItem(`filter-${uniqueIDRef}`, e.currentTarget.options.selectedIndex);
+
+};
+
+
+document.addEventListener('DOMContentLoaded', function(){
+    filterList.forEach((input) =>{
+        const uniqueIDRef= (input.parentNode.getAttribute('value'));
+        const filterValueFromLocalStorage = localStorage.getItem(`filter-${uniqueIDRef}`)
+
+
+        input.options.selectedIndex = filterValueFromLocalStorage;
+
+
+    })
+})
+
+
+
+sidebarSection.addEventListener('click', sidedarFunction)
+
+function sidedarFunction(event){
+
+    for(let i = 0; i<filterList.length; i+=1){
+
+
+        if (event.target.id != filterList[i].selectedIndex){
+            
+            filterList[i].parentNode.classList.add('visible')
+            console.log(filterList[i].parentNode)
+            } else filterList[i].parentNode.classList.remove('visible')
+        
+        
+    }        
+
+} 
+
 
 
